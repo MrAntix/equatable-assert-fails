@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace equatable_assert_fails;
 
-public class CollectionTests
+public class ImmutableListTests
 {
     public sealed class It<T> : IImmutableList<T>, IEquatable<It<T>>
     {
@@ -59,10 +59,6 @@ public class CollectionTests
 
         public static bool operator ==(It<T> x, It<T> y) => Equals(x, y);
         public static bool operator !=(It<T> x, It<T> y) => !Equals(x, y);
-
-        public static implicit operator It<T>(T[] array) => new(array);
-        public static implicit operator It<T>(List<T> array) => new(array);
-        public static implicit operator It<T>(ImmutableList<T> array) => new(array);
     }
 
     [Fact]
